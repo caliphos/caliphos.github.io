@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İletişim | Detaylı Form</title>
+</head>
+<body>
+
+    <h1>Detaylı İletişim Formu</h1>
+    
+    <nav>
+        <a href="index.html">Ana Sayfa</a> | 
+        <a href="about.html">Hakkımda</a> | 
+        <a href="interests.html">İlgi Alanlarım</a> | 
+        <a href="contact.html">İletişim</a>
+    </nav>
+    
+    <hr>
+
+    <form action="#" method="post">
+        <p>
+            <label for="ad-soyad">Ad Soyad:</label><br>
+            <input type="text" id="ad-soyad" name="ad-soyad" placeholder="Örn: Asaf Karalaş">
+        </p>
+
+        <p>
+            <label for="email">E-posta Adresi:</label><br>
+            <input type="email" id="email" name="email" placeholder="ornek@mail.com">
+        </p>
+
+        <p>
+            <label for="sifre">Başvuru Takip Şifresi:</label><br>
+            <input type="password" id="sifre" name="sifre" placeholder="Şifrenizi girin">
+        </p>
+
+        <fieldset>
+            <legend>İletişim Tercihi:</legend>
+            <input type="radio" id="tercih-eposta" name="iletisim-tercihi" value="eposta" checked>
+            <label for="tercih-eposta">Bana e-posta ile ulaşın</label><br>
+            
+            <input type="radio" id="tercih-telefon" name="iletisim-tercihi" value="telefon">
+            <label for="tercih-telefon">Bana telefonla ulaşın</label>
+        </fieldset>
+
+        <p>
+            <strong>İlgi Alanları / Yetenekler:</strong><br>
+            <input type="checkbox" id="html" name="yetenek" value="html">
+            <label for="html">HTML</label><br>
+            
+            <input type="checkbox" id="css" name="yetenek" value="css">
+            <label for="css">CSS</label><br>
+            
+            <input type="checkbox" id="algoritma" name="yetenek" value="algoritma">
+            <label for="algoritma">Algoritma</label>
+        </p>
+
+        <p>
+            <label for="konu">Konu:</label><br>
+            <select id="konu" name="konu">
+                <option value="">Lütfen bir konu seçin...</option>
+                <option value="genel">Genel Soru</option>
+                <option value="is">İş Birliği</option>
+                <option value="hata">Hata Bildirimi</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="dosya">Özgeçmiş (CV) veya Fotoğraf Yükle:</label><br>
+            <input type="file" id="dosya" name="dosya">
+        </p>
+
+        <p>
+            <label for="mesaj">Mesajınız:</label><br>
+            <textarea id="mesaj" name="mesaj" rows="5" cols="40" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+        </p>
+
+        <p>
+            <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px;">Gönder</button>
+            <button type="reset" style="background-color: #dc3545; color: white; padding: 10px 20px;">Temizle</button>
+        </p>
+
+    </form>
+
+    <hr>
+    <footer>&copy; 2026 Furkan Adıgüzel</footer>
+
+</body>
+</html>
