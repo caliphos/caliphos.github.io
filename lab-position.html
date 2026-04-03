@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAB: CSS Position Çalışması</title>
     <style>
-        /* Genel Sayfa Ayarları */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -13,7 +12,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 150vh; /* Scroll (kaydırma) oluşması için yüksek tutuldu */
+            min-height: 150vh; 
         }
 
         header {
@@ -21,7 +20,6 @@
             text-align: center;
         }
 
-        /* 1. FIXED ÖĞE: Sayfa kaydırılsa da sol üstte sabit kalan buton */
         .back-button {
             position: fixed;
             top: 20px;
@@ -31,18 +29,17 @@
             padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
-            z-index: 1000; /* Her zaman en üstte */
+            z-index: 1000;
             cursor: pointer;
-            transition: transform 0.3s; /* Animasyon 1 */
+            transition: transform 0.3s;
         }
 
         .back-button:hover {
             background-color: #0056b3;
-            transform: scale(1.1); /* Hover efekti */
-            cursor: move; /* Farklı cursor 1 */
+            transform: scale(1.1);
+            cursor: move;
         }
 
-        /* 2. RELATIVE KAPSAYICI: Duyuru Kartı */
         .event-card {
             position: relative; 
             width: 400px;
@@ -51,7 +48,7 @@
             border: 2px solid #333;
             margin-top: 100px;
             padding: 20px;
-            box-shadow: 10px 10px 0px #333; /* Sert, düz çizgili öğrenci tasarımı */
+            box-shadow: 10px 10px 0px #333;
         }
 
         .event-card h2 {
@@ -59,9 +56,7 @@
             color: #2c3e50;
         }
 
-        /* 3. ABSOLUTE ÖĞELER (Kart içindekiler) */
         
-        /* Öğe 1: Sol üstteki 'Ücretsiz' etiketi */
         .tag-free {
             position: absolute;
             top: -15px;
@@ -70,11 +65,10 @@
             padding: 5px 10px;
             border: 2px solid #333;
             font-weight: bold;
-            cursor: help; /* Farklı cursor 2 */
+            cursor: help;
             z-index: 10;
         }
 
-        /* Öğe 2: Sağ üstteki Tarih kutusu */
         .date-box {
             position: absolute;
             top: 10px;
@@ -83,10 +77,9 @@
             border: 1px dashed #2e7d32;
             padding: 5px;
             font-size: 0.9em;
-            cursor: crosshair; /* Farklı cursor 3 */
+            cursor: crosshair;
         }
 
-        /* Öğe 3: Sağ alttaki Konum etiketi */
         .location-info {
             position: absolute;
             bottom: 15px;
@@ -95,10 +88,9 @@
             padding: 8px;
             border-left: 5px solid #d81b60;
             font-size: 0.85em;
-            animation: bounce 2s infinite; /* Animasyon 2 */
+            animation: bounce 2s infinite;
         }
 
-        /* Z-INDEX ÖRNEĞİ: Arka plandaki dekoratif daire */
         .decor-circle {
             position: absolute;
             bottom: -30px;
@@ -107,16 +99,14 @@
             height: 100px;
             background-color: rgba(0, 123, 255, 0.1);
             border-radius: 50%;
-            z-index: -1; /* Kart içeriğinin arkasında kalır */
+            z-index: -1;
         }
 
-        /* ANIMASYONLAR */
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
 
-        /* 4. YARDIMCI FIXED ÖĞE (Sağ alt menü) */
         .helper-menu {
             position: fixed;
             bottom: 20px;
