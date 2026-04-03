@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB: CSS Position Çalışması</title>
+    <style>
+        /* Genel Sayfa Ayarları */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 150vh; /* Scroll (kaydırma) oluşması için yüksek tutuldu */
+        }
+
+        header {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* 1. FIXED ÖĞE: Sayfa kaydırılsa da sol üstte sabit kalan buton */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 1000; /* Her zaman en üstte */
+            cursor: pointer;
+            transition: transform 0.3s; /* Animasyon 1 */
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1); /* Hover efekti */
+            cursor: move; /* Farklı cursor 1 */
+        }
+
+        /* 2. RELATIVE KAPSAYICI: Duyuru Kartı */
+        .event-card {
+            position: relative; 
+            width: 400px;
+            height: 250px;
+            background-color: white;
+            border: 2px solid #333;
+            margin-top: 100px;
+            padding: 20px;
+            box-shadow: 10px 10px 0px #333; /* Sert, düz çizgili öğrenci tasarımı */
+        }
+
+        .event-card h2 {
+            margin-top: 40px;
+            color: #2c3e50;
+        }
+
+        /* 3. ABSOLUTE ÖĞELER (Kart içindekiler) */
+        
+        /* Öğe 1: Sol üstteki 'Ücretsiz' etiketi */
+        .tag-free {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background-color: #ffc107;
+            padding: 5px 10px;
+            border: 2px solid #333;
+            font-weight: bold;
+            cursor: help; /* Farklı cursor 2 */
+            z-index: 10;
+        }
+
+        /* Öğe 2: Sağ üstteki Tarih kutusu */
+        .date-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e8f5e9;
+            border: 1px dashed #2e7d32;
+            padding: 5px;
+            font-size: 0.9em;
+            cursor: crosshair; /* Farklı cursor 3 */
+        }
+
+        /* Öğe 3: Sağ alttaki Konum etiketi */
+        .location-info {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #fce4ec;
+            padding: 8px;
+            border-left: 5px solid #d81b60;
+            font-size: 0.85em;
+            animation: bounce 2s infinite; /* Animasyon 2 */
+        }
+
+        /* Z-INDEX ÖRNEĞİ: Arka plandaki dekoratif daire */
+        .decor-circle {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1; /* Kart içeriğinin arkasında kalır */
+        }
+
+        /* ANIMASYONLAR */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* 4. YARDIMCI FIXED ÖĞE (Sağ alt menü) */
+        .helper-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #6f42c1;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-button">Ana Sayfaya Dön</a>
+
+    <header>
+        <h1>LAB: Position Uygulaması</h1>
+        <p>CSS Konumlandırma Özellikleri Test Sayfası</p>
+    </header>
+
+    <div class="event-card">
+        <div class="tag-free">Ücretsiz</div>
+        <div class="date-box">25 Nisan 2026</div>
+        
+        <h2>Yapay Zeka Semineri</h2>
+        <p>Marmara Üniversitesi Mühendislik Fakültesi öğrencileri için temel seviye anlatım.</p>
+        
+        <div class="location-info">Konum: M7 Binası</div>
+        
+        <div class="decor-circle"></div>
+    </div>
+
+    <div class="helper-menu">
+        Destek Hattı
+    </div>
+
+    <footer>
+        2026 - LAB Position Örnek Çalışması | Furkan Adıgüzel
+    </footer>
+
+</body>
+</html>
