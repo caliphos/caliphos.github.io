@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödev 2 | Furkan Adıgüzel</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #333; padding-bottom: 10px; }
+        .app-section { margin-bottom: 40px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        input, select, button { display: block; width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0056b3; }
+        .result-box { background-color: #e2f3e5; padding: 15px; border-radius: 5px; margin-top: 10px; font-weight: bold; }
+        nav { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Ana Sayfa</a> | <b>Ödev 2</b>
+    </nav>
+
+    <div class="container">
+        <h1>Web Programlama Ödev 2</h1>
+
+        <div class="app-section">
+            <h2>Öğrenci Not Hesaplama</h2>
+            <input type="text" id="name" placeholder="Ad Soyad">
+            <input type="number" id="vize" placeholder="Vize Notu">
+            <input type="number" id="final" placeholder="Final Notu">
+            <button onclick="hesaplaNot()">Hesapla</button>
+            
+            <div id="notSonuc" class="result-box" style="display:none;"></div>
+        </div>
+
+        <div class="app-section">
+            <h2>Birim Dönüştürücü</h2>
+            <label>Değer Giriniz:</label>
+            <input type="number" id="birimDeger" placeholder="50">
+            
+            <label>Dönüşüm Tipi:</label>
+            <select id="donusumTipi">
+                <option value="c-f">Celsius -> Fahrenheit</option>
+                <option value="m-k">Metre -> Kilometre</option>
+                <option value="k-g">Kilogram -> Gram</option>
+            </select>
+            
+            <button onclick="donustur()">Hesapla</button>
+            
+            <div id="birimSonuc" class="result-box" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function hesaplaNot() {
+            const ad = document.getElementById('name').value;
+            const vize = parseFloat(document.getElementById('vize').value);
+            const final = parseFloat(document.getElementById('final').value);
+            const sonucDiv = document.getElementById('notSonuc');
+
+            if(!ad || isNaN(vize) || isNaN(final)) {
+                alert("Lütfen tüm alanları doldurun!");
+                return;
+            }
+
+            const ortalama = (vize * 0.4) + (final * 0.6);
+            let harf = "";
+            if (ortalama >= 90) harf = "AA";
+            else if (ortalama >= 80) harf = "BA";
+            else if (ortalama >= 70) harf = "BB";
+            else if (ortalama >= 60) harf = "CB";
+            else if (ortalama >= 50) harf = "CC";
+            else harf = "FF";
+
+            const durum = ortalama >= 50 ? "Geçti" : "Kaldı";
+
+            sonucDiv.style.display = "block";
+            sonucDiv.innerHTML = `
+                ${ad}<br>
+                Ortalama: ${ortalama.toFixed(2)}<br>
+                Harf Notu: ${harf}<br>
+                Durum: ${durum}
+            `;
+        }
+
+        function donustur() {
+            const deger = parseFloat(document.getElementById('birimDeger').value);
+            const tip = document.getElementById('donusumTipi').value;
+            const sonucDiv = document.getElementById('birimSonuc');
+            let sonuc = 0;
+
+            if(isNaN(deger)) {
+                alert("Lütfen bir sayı girin!");
+                return;
+            }
+
+            if(tip === "c-f") {
+                sonuc = (deger * 9/5) + 32; // Celsius to Fahrenheit
+            } else if(tip === "m-k") {
+                sonuc = deger / 1000; // Metre to KM
+            } else if(tip === "k-g") {
+                sonuc = deger * 1000; // KG to Gram
+            }
+
+            sonucDiv.style.display = "block";
+            sonucDiv.innerHTML = `Sonuç: ${sonuc.toLocaleString('tr-TR')}`;
+        }
+    </script>
+</body>
+</html>
