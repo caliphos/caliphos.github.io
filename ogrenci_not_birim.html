@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Ödev 2 | Furkan Adıgüzel</title>
+    <title>Furkan Adıgüzel</title>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f4; }
         .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -22,10 +22,10 @@
     </nav>
 
     <div class="container">
-        <h1>Web Programlama Ödev 2</h1>
+        <h1>not hesaplama ve birm dönüştürücü uygulaması</h1>
 
         <div class="app-section">
-            <h2>Öğrenci Not Hesaplama</h2>
+            <h2>Öğrenci Not hesplama</h2>
             <input type="text" id="name" placeholder="Ad Soyad">
             <input type="number" id="vize" placeholder="Vize Notu">
             <input type="number" id="final" placeholder="Final Notu">
@@ -41,12 +41,12 @@
             
             <label>Dönüşüm Tipi:</label>
             <select id="donusumTipi">
-                <option value="c-f">Celsius -> Fahrenheit</option>
-                <option value="m-k">Metre -> Kilometre</option>
-                <option value="k-g">Kilogram -> Gram</option>
+                <option value="c-f">celsius -> fahrenheit</option>
+                <option value="m-k">mtre -> km</option>
+                <option value="k-g">kg -> gr</option>
             </select>
             
-            <button onclick="donustur()">Hesapla</button>
+            <button onclick="donustur()">hesapla</button>
             
             <div id="birimSonuc" class="result-box" style="display:none;"></div>
         </div>
